@@ -31,4 +31,4 @@ jobs:
         with:
           context: ./sample-packages/docker/
           push: true
-          tags: latest
+          tags: SohraubP/test-image:latest
