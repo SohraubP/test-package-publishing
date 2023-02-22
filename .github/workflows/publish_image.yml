@@ -1,0 +1,34 @@
+name: Create and publish docker image
+
+on:
+  push:
+    branches: ['main']
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: test-image
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Login to registry
+        uses: docker/login-actions@v2
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.PACKAGES_PAT }}
+          registry: ${{ env.REGISTRY }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: ./sample-packages/docker/
+          push: true
+          tags: latest
