@@ -34,4 +34,4 @@ jobs:
         with:
           context: ./sample-packages/docker/
           push: true
-          tags: sohraubp/test-image:latest
+          tags: ghcr.io/sohraubp/test-package-publishing/test-image:latest
