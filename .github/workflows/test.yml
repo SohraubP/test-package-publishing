@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: SohraubP/test-yaml-read@main
+          repository: SohraubP/test-yaml-read
+          ref: main
           path: ./configs
       - name: Check
         run: cat ./configs/config_test.yml
