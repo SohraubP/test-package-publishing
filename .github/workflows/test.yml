@@ -11,9 +11,8 @@ jobs:
     name: Sample job
     steps:
       - uses: actions/checkout@v3
-      - uses: SohraubP/test-yaml-read@v2
-        id: read_yaml
         with:
-          filepath: config_test.yml
-      - name: Validate
-        run: echo ${{ steps.read_yaml.outputs.data }}
+          repository: SohraubP/test-yaml-read@main
+          path: ./configs
+      - name: Check
+        run: cat ./configs/config_test.yml
