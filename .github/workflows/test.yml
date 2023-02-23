@@ -1,0 +1,19 @@
+name: Test Action
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Sample job
+    steps:
+      - uses: actions/checkout@v3
+      - uses: SohraubP/test-yaml-read@v1
+        id: read_yaml
+        with:
+          filepath: config_test.yml
+      - name: Validate
+        run: echo ${{ steps.read_yaml.outputs.data }}
