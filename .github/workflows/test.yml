@@ -11,7 +11,7 @@ jobs:
     name: Sample job
     steps:
       - uses: actions/checkout@v3
-      - uses: SohraubP/test-yaml-read@v1
+      - uses: SohraubP/test-yaml-read@v2
         id: read_yaml
         with:
           filepath: config_test.yml
